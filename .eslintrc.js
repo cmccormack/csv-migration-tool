@@ -3,24 +3,18 @@ module.exports = {
     browser: true,
     commonjs: true,
     es6: true,
-    node: true
+    node: true,
   },
   extends: ["prettier", "prettier/react"],
   parserOptions: {
     ecmaVersion: 2018,
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
-    sourceType: "module"
+    sourceType: "module",
   },
   plugins: ["prettier"],
   rules: {
-    "prettier/prettier": [
-      "error",
-      {
-        trailingComma: "es5",
-        tabWidth: 2
-      }
-    ]
-  }
+    "prettier/prettier": ["error"],
+  },
 };
