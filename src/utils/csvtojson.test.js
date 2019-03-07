@@ -8,13 +8,13 @@ test("it should return an object", () => {
     {
       firstName: "Chris",
       secondName: "Tara",
-      thirdName: "Pepper"
+      thirdName: "Pepper",
     },
     {
       firstName: "Josh",
       secondName: "Kat",
-      thirdName: "Blake"
-    }
+      thirdName: "Blake",
+    },
   ]);
 });
 
@@ -24,17 +24,17 @@ test("it should return an object with missing values filled in", () => {
     {
       a: "1",
       b: "",
-      c: ""
+      c: "",
     },
     {
       a: "m",
       b: "n",
-      c: ""
+      c: "",
     },
     {
       a: "",
       b: "y",
-      c: "z"
-    }
+      c: "z",
+    },
   ]);
 });

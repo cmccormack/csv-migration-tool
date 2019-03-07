@@ -13,7 +13,7 @@ const App = props => {
       skipEmptyLines: "greedy",
       complete: (results, file) => {
         console.log(results);
-      }
+      },
     });
   };
 
