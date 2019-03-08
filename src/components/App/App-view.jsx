@@ -1,13 +1,23 @@
 import React from "react";
 
 const AppView = props => {
-  const { title, handleFile } = props;
+  const { files, handleFile, title } = props;
   return (
-    <div>
-      <h1 id="title">{title}</h1>;
-      <input type="file" accept="text/csv" onChange={handleFile} />
-      <input type="file" accept="text/csv" onChange={handleFile} />
-    </div>
+    <>
+      <h1 id="title">{title}</h1>
+      <div className="columns">
+        {files.map((file, i) => (
+          <div className="column shadow" key={file.name}>
+            <input
+              accept="text/csv"
+              id={`column-${file.name}`}
+              onChange={handleFile.bind(null, i)}
+              type="file"
+            />
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
