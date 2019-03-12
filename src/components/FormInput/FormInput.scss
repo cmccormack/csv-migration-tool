@@ -1,6 +1,9 @@
 .formInput {
-  flex: 1 1 auto;
-  border: none;
+  flex: 1 1 80%;
+  display: inline-block;
+  border: 1px solid #222;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 0.3rem;
-  box-shadow: 2px 2px 2px -1px #222;
+  box-shadow: 2px 2px 2px -1px #333;
 }

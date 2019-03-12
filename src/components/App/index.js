@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Papa from "papaparse";
 import "./App.scss";
+import ThemeProvider from "../../contexts/ThemeContext";
 import Title from "../Title";
 import Columns from "../Columns";
 import Column from "../Column";
@@ -43,41 +44,42 @@ const App = props => {
         return console.error(err);
       }
       files[i].csv = results;
-      console.log(results);
       setFiles([...files]);
     });
   };
 
   return (
     <React.Fragment>
-      <Title size={6} align="center">
-        {"CSV Migration Tool"}
-      </Title>
-      <Columns>
-        {files.map((file, i) => (
-          <Column key={file.name}>
-            <Title size={3}>{file.title}</Title>
-            <input
-              accept="text/csv"
-              id={`column-${file.name}`}
-              onChange={e => handleFile(i, e)}
-              type="file"
-            />
-            {file.csv && (
-              <InputRows name={file.name}>
-                {file.csv.meta.fields.map(field => {
-                  console.log(field);
-                  return (
-                    <InputRow htmlFor={`column-${i}-${field}`}>
-                      {field}
-                    </InputRow>
-                  );
-                })}
-              </InputRows>
-            )}
-          </Column>
-        ))}
-      </Columns>
+      <ThemeProvider value={{ current: "#B2E3AF", new: "#b0d2e3" }}>
+        <Title size={6} align="center">
+          {"CSV Migration Tool"}
+        </Title>
+        <Columns>
+          {files.map((file, i) => (
+            <Column key={file.name}>
+              <Title size={3}>{file.title}</Title>
+              <input
+                accept="text/csv"
+                id={`column-${file.name}`}
+                onChange={e => handleFile(i, e)}
+                type="file"
+              />
+              {file.csv && (
+                <InputRows name={file.name}>
+                  {file.csv.meta.fields.map(field => {
+                    console.log(field);
+                    return (
+                      <InputRow htmlFor={`column-${i}-${field}`}>
+                        {field}
+                      </InputRow>
+                    );
+                  })}
+                </InputRows>
+              )}
+            </Column>
+          ))}
+        </Columns>
+      </ThemeProvider>
     </React.Fragment>
   );
 };

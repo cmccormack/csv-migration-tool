@@ -1,12 +1,24 @@
 .row {
+  position: relative;
   display: flex;
   align-items: center;
-  margin: 0.6rem 0;
+  margin: 0.8rem 0;
+  transition: all 0.3s ease-in-out;
+
+  .formInput {
+    &:active,
+    &:focus {
+      + label {
+        transition: all 0.2s ease-in-out;
+        transform: translate(-8px, -23px) scale(0.8);
+      }
+    }
+  }
 
   label {
-    flex: 1 0 120px;
-    max-width: 140px;
-    text-align: right;
-    margin-right: 1rem;
+    display: inline-block;
+    position: absolute;
+    left: 0.5rem;
+    transition: all 0.3s ease-in-out;
   }
 }

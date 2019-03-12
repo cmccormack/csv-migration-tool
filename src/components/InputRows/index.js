@@ -1,9 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import cx from "classnames";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import "./InputRows.scss";
 
 const InputRows = ({ children, name }) => {
-  return <div className={cx("rows", `column-${name}`)}>{children}</div>;
+  const context = useContext(ThemeContext);
+  console.log(name, context);
+  return (
+    <div
+      className={"rows"}
+      style={{ backgroundColor: `${context[name + "Theme"]}` }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default InputRows;

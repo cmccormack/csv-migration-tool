@@ -5,8 +5,8 @@ import FormInput from "../FormInput";
 const InputRow = ({ children, id }) => {
   return (
     <div className="row">
-      <label htmlFor={id}>{children}</label>
       <FormInput id={id} />
+      <label htmlFor={id}>{children}</label>
     </div>
   );
 };
