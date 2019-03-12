@@ -1,0 +1,24 @@
+.title {
+  color: #fff;
+  text-align: left;
+  font-size: 2rem;
+  margin: 2rem 0;
+
+  @for $i from 1 through 12 {
+    &.size-#{$i} {
+      font-size: #{$i/2}rem;
+    }
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.right {
+    text-align: right;
+  }
+}
+
+.text-shadow {
+  text-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+}

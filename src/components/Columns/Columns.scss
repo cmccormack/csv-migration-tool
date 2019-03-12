@@ -1,0 +1,11 @@
+.columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  margin: 40px;
+  margin-top: 0;
+
+  @media only screen and (max-width: 720px) {
+    flex-direction: column;
+  }
+}

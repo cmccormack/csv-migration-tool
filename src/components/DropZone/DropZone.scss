@@ -1,0 +1,17 @@
+.dropzone {
+  position: relative;
+  display: inline-block;
+  font-size: 0.7rem;
+  border: 3px dotted #ddd;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.1rem;
+  color: white;
+  margin-right: 2rem;
+  // flex-direction: column;
+
+  &:after {
+    content: "OR";
+    position: absolute;
+    right: -1.5rem;
+  }
+}
