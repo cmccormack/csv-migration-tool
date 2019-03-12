@@ -11,8 +11,7 @@
     "dev:build": "webpack --mode development",
     "dev:build:vis": "webpack --mode development --env.visualize",
     "dev:start": "webpack-dev-server",
-    "dev:start:vis": "webpack-dev-server --env.visualize",
-    "setup": "node ./src/setup.js"
+    "dev:start:vis": "webpack-dev-server --env.visualize"
   },
   "repository": {
     "type": "git",
