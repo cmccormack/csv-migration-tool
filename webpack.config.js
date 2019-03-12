@@ -13,15 +13,15 @@ module.exports = (env, { mode = "production" }) => {
   return {
     context: path.join(__dirname, "./"),
     entry: {
-      app: "./src/index.js"
+      app: "./src/index.js",
     },
     output: {
       path: path.resolve(__dirname, "dist"),
       publicPath: isLocal ? "./" : "/",
-      filename: "[name].bundle.js"
+      filename: "[name].bundle.js",
     },
     resolve: {
-      extensions: [".js", ".jsx"]
+      extensions: [".js", ".jsx"],
     },
     module: {
       rules: [
@@ -29,15 +29,15 @@ module.exports = (env, { mode = "production" }) => {
           test: /\.jsx?$/i,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader"
-          }
+            loader: "babel-loader",
+          },
         },
         {
           test: /\.(png|ico|jpe?g|gif)$/i,
           use: [
             "file-loader?name=assets/images/[name].[ext]",
-            "image-webpack-loader"
-          ]
+            "image-webpack-loader",
+          ],
         },
         {
           test: /\.(sa|sc|c)ss$/i,
@@ -49,36 +49,37 @@ module.exports = (env, { mode = "production" }) => {
               options: {
                 outputStyle: isProd ? "compressed" : "expanded",
                 sourceComments: !isProd,
-                sourceMap: !isProd
-              }
-            }
-          ]
+                sourceMap: !isProd,
+              },
+            },
+          ],
         },
         {
           test: /\.(woff|woff2|eot|ttf|svg)$/i,
-          loader: "file-loader?name=assets/fonts/[name].[ext]"
-        }
-      ]
+          loader: "file-loader?name=assets/fonts/[name].[ext]",
+        },
+      ],
     },
     devtool: "source-map",
     devServer: {
-      contentBase: path.join(__dirname, "public"),
+      contentBase: path.join(__dirname, "dist"),
       compress: true,
+      open: true,
       port: 9000,
-      open: true
+      stats: "minimal",
     },
     plugins: [
-      new CleanWebpackPlugin(["public"], { verbose: true }),
+      new CleanWebpackPlugin(["dist"], { verbose: true }),
       new CompressionPlugin(),
       new HtmlWebpackPlugin({
         inject: "body",
-        template: "./src/index.html"
+        template: "./src/index.html",
       }),
       new MiniCssExtractPlugin({
         filename: "assets/styles/[name].css",
-        chunkFilename: "[id].css"
+        chunkFilename: "[id].css",
       }),
-      visualize && new Visualizer()
-    ].filter(Boolean)
+      visualize && new Visualizer(),
+    ].filter(Boolean),
   };
 };
